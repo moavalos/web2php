@@ -31,4 +31,12 @@ $texto2 = "mundo!";
 $resultado = concatenar($texto1, $texto2);
 
 echo "Resultado de la concatenación: $resultado";
+
+require_once "ejercicio4/4.php";
+$valor = 5;
+echo "Valor original: $valor<br>";
+
+incrementar($valor);
+echo "Valor después de incrementar: $valor";
+
 ?>
