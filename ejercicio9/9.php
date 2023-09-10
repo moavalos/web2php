@@ -58,6 +58,18 @@
             <input type="text" name="nombre" id="nombre" required>
             <input type="submit" value="Subir Imagen">
         </form>
+
+        <!-- EJERCICIO 10-->
+        <h2>Ver Imágenes</h2>
+        <ul>
+            <?php
+            foreach ($imagenes as $imagen) {
+                if ($imagen != '.' && $imagen != '..') {
+                    echo '<li><a href="../ejercicio10/10.php?nombre=' . urlencode($imagen) . '">' . $imagen . '</a></li>';
+                }
+            }
+            ?>
+        </ul>
     </main>
 </body>
 
