@@ -38,7 +38,6 @@ iframe {
 
     <ul class="menu">
         <li class="menu-9"><a href="ejercicio9/9.php">Ejercicio 9</a></li>
-        <li class="menu-10"><a href="ejercicio10/10.php">Ejercicio 10</a></li>
         <li class="menu-11"><a href="ejercicio11/11.php">Ejercicio 11</a></li>
         <li class="menu-12"><a href="ejercicio12/12.php">Ejercicio 12</a></li>
         <li class="menu-13"><a href="ejercicio13/13.php">Ejercicio 13</a></li>
