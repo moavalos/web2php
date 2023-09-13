@@ -20,29 +20,35 @@
         <h1>Lista de Visitantes no Terrestres</h1>
 
         <?php
-        $archivo = 'visitas.json';
-
-        if (file_exists($archivo)) {
-            $visitas = json_decode(file_get_contents($archivo), true);
-
-            $contadorNoTerrestres = 0;
-
-            echo '<ul>';
-            foreach ($visitas as $visita) {
-                echo '<li>' . $visita['nombre'] . ' (' . $visita['planeta'] . ')</li>';
-                if ($visita['planeta'] !== 'Tierra') {
-                    $contadorNoTerrestres++;
-                }
-            }
-            echo '</ul>';
-
-            echo '<p>Total de visitas no terrestres: ' . $contadorNoTerrestres . '</p>';
-        } else {
-            echo '<p>No hay visitantes registrados.</p>';
+        $visitantes = [];
+        if (file_exists("visitantes.json")) {
+            $visitantes = json_decode(file_get_contents("visitantes.json"), true);
         }
+
+        $contador = 0;
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nombre = $_POST["nombre"];
+            $planeta = $_POST["planeta"];
+
+            $visitantes[] = ["nombre" => $nombre, "planeta" => $planeta];
+
+            file_put_contents("visitantes.json", json_encode($visitantes));
+        }
+
+        echo "<ul>";
+        foreach ($visitantes as $visitante) {
+            echo "<li>{$visitante['nombre']} - Planeta: {$visitante['planeta']}</li>";
+            if ($visitante['planeta'] !== 'Tierra') {
+                $contador++;
+            }
+        }
+        echo "</ul>";
+
+        echo "<p>Total de visitantes que no pertenecen a la Tierra: $contador</p>";
         ?>
 
-        <p><a href="11.php">Volver</a></p>
+        <p><a href="12.php">Volver</a></p>
     </main>
 
 </body>

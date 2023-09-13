@@ -1,0 +1,14 @@
+[
+    {
+        "nombre": "Visitante 1",
+        "planeta": "Marte"
+    },
+    {
+        "nombre": "Visitante 2",
+        "planeta": "Jupiter"
+    },
+    {
+        "nombre": "Visitante 3",
+        "planeta": "Tierra"
+    }
+]
