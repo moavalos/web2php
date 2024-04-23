@@ -1,0 +1,112 @@
+{{> header}}
+<style>
+    body {
+        background-image: url("/TpFinal/public/img/fondo.svg");
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+<div class="flex w-full my-8 lg:my-0 lg:h-screen justify-center items-center">
+    <div class="w-[90%] lg:w-[95%] xl:w-4/5 p-3">
+        <div class="bg-white rounded-lg shadow-lg w-full mt-8 flex flex-col-reverse lg:flex-row">
+                    <div class="flex flex-col w-full lg:w-3/4 xl:w-4/5 justify-center">
+                <div class="w-full flex items-center justify-between">
+                    <button type="button"
+                            class="m-6 lg:mx-6 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
+                        <a href="cerrarSesion">Cerrar sesión</a>
+                    </button>
+          
+                </div>
+                <div id="errorCompraTrampitas"></div>
+                <h1 class="font-bold text-4xl lg:text-5xl text-center text-indigo-700 my-4">
+                    Hola, {{usuario.nombre}}!
+                </h1>
+                <p class="font-bold text-gray-700 text-2xl lg:text-3xl mx-12 my-4">Récord: {{puntajeMayor}} puntos</p>
+                <div class="w-[95%] sm:w-4/5 my-4 mx-auto border-b border-gray-200 shadow h-48 overflow-x-scroll md:overflow-x-hidden overflow-y-scroll">
+                    <table class="w-full divide-y divide-indigo-700">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th class="w-1/2 text-center text-md px-6 py-2 text-gray-500">Fecha</th>
+                            <th class="w-1/2 text-center text-md px-6 py-2 text-gray-500">Puntaje</th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-300">
+                        {{#historial}}
+                            <tr class="whitespace-nowrap">
+                                <td class="px-6 py-4 text-center text-md text-gray-900">{{fecha}}</td>
+                                <td class="px-6 py-4 text-center text-md text-gray-500">{{puntaje}}</td>
+                            </tr>
+                        {{/historial}}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex items-center">
+              
+               
+                    
+                </div>
+            </div>
+            <div class="flex flex-col w-full lg:w-1/4 xl:w-1/5 bg-gray-700">
+                <div class="hidden lg:flex lg:h-1/4 justify-center p-6 items-center space-x-6">
+                    <img alt="logo">
+                    <p class="text-2xl leading-6 text-white">Preguntaditos</p>
+                </div>
+                <div class="h-1/2 flex flex-col md:flex-row lg:flex-col justify-center items-center pt-4 lg:pb-12 border-b border-gray-600 w-full">
+                    <a href="/tpFinal/partida/pregunta"
+                       class="flex justify-center lg:justify-start items-center hover:text-white text-center lg:text-start focus:bg-pink-700 focus:text-white text-gray-400 rounded px-3 py-2 w-full lg:w-52">
+                        
+                        <p class="mx-2 sm:mx-1 lg:w-4/5 text-base">Crear partida</p>
+                    </a>
+                    <a href="/tpFinal/crearPregunta/list"
+                       class="flex justify-center lg:justify-start items-center hover:text-white text-center lg:text-start focus:bg-pink-700 focus:text-white text-gray-400 rounded px-3 py-2 w-full lg:w-52">
+                       
+                        <p class="mx-2 sm:mx-1 lg:w-4/5 text-base">Crear pregunta</p>
+                    </a>
+                    <a href="/tpFinal/crearCategoria/list"
+                       class="flex justify-center lg:justify-start items-center hover:text-white text-center lg:text-start focus:bg-pink-700 focus:text-white text-gray-400 rounded px-3 py-2 w-full lg:w-52">
+                       
+                        <p class="mx-2 sm:mx-1 lg:w-4/5 text-base">Crear Categoria</p>
+                    </a>
+                    <a href="/tpFinal/ranking/list"
+                       class="flex justify-center lg:justify-start items-center hover:text-white text-center lg:text-start focus:bg-pink-700 focus:text-white text-gray-400 rounded px-3 py-2 w-full lg:w-52">
+                      
+                        <p class="mx-2 sm:mx-1 lg:w-4/5 text-base">Ranking</p>
+                    </a>
+                    {{#editor}}
+                        <a href="/tpFinal/editor/revisionPreguntas"
+                           class="flex justify-center lg:justify-start items-center hover:text-white text-center lg:text-start focus:bg-pink-700 focus:text-white text-gray-400 rounded px-3 py-2 w-full lg:w-52">
+                          
+                            <p class="mx-2 sm:mx-1 lg:w-4/5 text-base">Revisión de preguntas</p>
+                        </a>
+                        <a href="/tpFinal/editor/revisionCategorias"
+                           class="flex justify-center lg:justify-start items-center hover:text-white text-center lg:text-start focus:bg-pink-700 focus:text-white text-gray-400 rounded px-3 py-2 w-full lg:w-52">
+                        
+                            <p class="mx-2 sm:mx-1 lg:w-4/5 text-base">Revisión de categorias</p>
+                        </a>
+                    {{/editor}}
+                    {{#administrador}}
+                        <a href="/tpFinal/administrador/estadisticas"
+                           class="flex justify-center lg:justify-start items-center hover:text-white text-center lg:text-start focus:bg-pink-700 focus:text-white text-gray-400 rounded px-3 py-2 w-full lg:w-52">
+                          
+                            <p class="mx-2 sm:mx-1 lg:w-4/5 text-base">Estadisticas</p>
+                        </a>
+                    {{/administrador}}
+                </div>
+                <div class="h-1/2 lg:h-1/4 w-full flex justify-center items-center p-6 space-x-4">
+                    <a href="/tpFinal/perfilJugador/list?id={{usuario.id}}"
+                    class="flex justify-center lg:justify-start items-center hover:text-white text-center lg:text-start
+                    focus:bg-pink-700 focus:text-white hover:bg-pink-700 bg-pink-700 rounded px-3 py-2 w-full
+                    lg:w-52">
+                    <img class="mx-4 w-14 h-14 " src="/tpfinal/public/img/{{usuario.foto_perfil}}"
+                         alt="avatar">
+                    <p class="cursor-pointer text-lg leading-5 text-white">{{usuario.nombre}} {{usuario.apellido}}</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+  
+</script>

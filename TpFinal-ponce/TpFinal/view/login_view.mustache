@@ -1,0 +1,49 @@
+{{> header}}
+
+    <div class="w-10/12 lg:w-9/12 xl:w-7/12 flex">
+        <div class="w-full h-auto hidden">
+        </div>
+        <div class="w-full  bg-white rounded-lg lg:rounded-l-none py-24 px-12">
+  
+            <h3 class="font-bold text-3xl text-indigo-700 text-center tracking-widest uppercase mb-4">Login</h3>
+            <form class="bg-white" method="POST" action="loguearse">
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm font-bold" for="username">
+                        Nombre de usuario
+                    </label>
+                    <input type="text" id="username" name="username"
+                           class="w-full mb-3 p-3 text-md border rounded shadow focus:outline-none focus:shadow-outline"
+                           placeholder="Username" value="{{datos.username}}"/>
+                    <div class="w-full"><span class="text-sm bg-red-200 text-red-800">{{errores.errorUsername}}</span>
+                    </div>
+                    <div class="w-full"><span
+                            class="text-sm bg-red-200 text-red-800">{{errores.errorNombreUsuario}}</span></div>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm font-bold" for="password">
+                        Contraseña
+                    </label>
+                    <input type="password" id="password" name="password"
+                           class="w-full mb-3 p-3 text-md border rounded shadow focus:outline-none focus:shadow-outline"
+                           placeholder="***********"/>
+                    <div class="w-full"><span class="text-sm bg-red-200 text-red-800">{{errores.errorContrasena}}</span>
+                    </div>
+                    <div class="w-full"><span
+                            class="text-sm bg-red-200 text-red-800">{{errores.errorCredenciales}}</span></div>
+                </div>
+                <div class="mb-4">
+                    <button class="w-full p-3 font-bold text-white bg-indigo-600 rounded-full focus:outline-none"
+                            type="submit">
+                        Iniciar sesión
+                    </button>
+                </div>
+                <hr class="my-6 border-t"/>
+                <div class="text-center">
+                    <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                       href="/tpfinal/formregistro/list">
+                        ¿No tenés una cuenta? Registrate
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
