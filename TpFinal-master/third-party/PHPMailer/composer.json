@@ -35,7 +35,8 @@
         "ext-ctype": "*",
         "ext-filter": "*",
         "ext-hash": "*"
-    },
+    },"phpmailer/phpmailer": "^6.9.1",
+
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
         "doctrine/annotations": "^1.2.6 || ^1.13.3",
